@@ -294,7 +294,7 @@ function table_listing_records_filter() {
 	// 	}
 	// });
 }
-function ShowModalContent(page_title, add_edit_id_value) {
+function ShowModalContent(page_title, add_edit_id_value, challan = '') {
 	var check_login_session = 1;
 	var post_url = "dashboard_changes.php?check_login_session=1";
 	// jQuery.ajax({url: post_url, success: function(check_login_session){
@@ -321,7 +321,11 @@ function ShowModalContent(page_title, add_edit_id_value) {
 			jQuery('#add_update_form_content').removeClass('d-none');
 		}
 	}
-	var post_url = post_send_file + "?" + add_edit_id + "=" + add_edit_id_value;
+	if(challan != "") {
+		var post_url = post_send_file + "?" + add_edit_id + "=" + add_edit_id_value + "&quotation_id=" + challan;
+	} else {
+		var post_url = post_send_file + "?" + add_edit_id + "=" + add_edit_id_value;
+	}
 	jQuery.ajax({
 		url: post_url, success: function (result) {
 			if (jQuery('.add_update_form_content').length > 0) {

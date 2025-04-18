@@ -1783,6 +1783,7 @@ function CalculateTotalQty(id) {
 	console.log("=>",id);
 	if(id != '') {
 		var quantity = $("#product_quantity_"+id).val();
+		var quantity_limit = $("#quantity_limit"+id).val();
 		var unit_type = $("#unit_type_"+id).val();
 		var content = $("#subunit_contains_"+id).val();
 		var total_qty = 0;
@@ -1790,6 +1791,12 @@ function CalculateTotalQty(id) {
 		if(quantity == '' || quantity == 0) {
 			quantity = 1;
 			$("#product_quantity_"+id).val(1);
+		}
+		if(quantity_limit < quantity) {
+			if($('.infos').length > 0) {
+				$('.infos').remove();
+			}
+			$("#product_quantity_"+id).before('<span class="infos w-100 text-center mb-3" style="font-size: 12px;">Quantity must Less than '+quantity_limit+'</span>');
 		}
 		if(unit_type == '1') {
 			total_qty = quantity * content;

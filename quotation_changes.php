@@ -143,7 +143,7 @@ if (isset($_REQUEST['show_quotation_id'])) {
             <div class="col-lg-3 col-md-3 col-12">
                 <div class="form-group pb-1">
                     <div class="form-label-group in-border pb-1">
-                        <select name="agent_id" class="select2 select2-danger" data-dropdown-css-class="select2-danger" style="width: 100%;" onchange="Javascript:GetAgentParty(this.value);">
+                        <select name="agent_id" class="select2 select2-danger" data-dropdown-css-class="select2-danger" style="width: 100%;">
                             <option value="">Select</option>
                             <?php
                                 if(!empty($agent_list)) {
@@ -712,7 +712,7 @@ if (isset($_POST['page_number'])) {
                                                  echo $list['quotation_id'];
                                              } ?>');"><i class="fa fa-pencil"></i> &ensp; Edit</a></li>
                                         <?php } ?>
-                                        <li><a class="dropdown-item" href="Javascript:ShowModalContent('delivery_challan', '<?php if (!empty($list['quotation_id'])) {
+                                        <li><a class="dropdown-item" href="Javascript:ShowModalContent('delivery_challan', '', '<?php if (!empty($list['quotation_id'])) {
                                                  echo $list['quotation_id'];
                                              } ?>');"><i class="fa fa-pencil"></i> &ensp; Delivery Challan</a></li>
                                         <?php
